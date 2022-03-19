@@ -24,15 +24,12 @@ module.exports = () => {
 
       }),
 
-      // new InjectManifest({
-      //   // These are some common options, and not all are required.
-      //   // Consult the docs for more info.
-      //   // exclude: [/.../, '...'],
-      //   // maximumFileSizeToCacheInBytes: ...,
-      //   swSrc: '../',
-      // }),
-
-      new InjectManifest(),
+      // Injects our custom service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }),
+      
       new WebpackPwaManifest({
         name: 'Text Editor',
         short_name: 'Text Editor',
