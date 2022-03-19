@@ -15,6 +15,24 @@ const initdb = async () =>
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
   console.error('putDb not implemented');
+
+
+  // Create a connection to the database database and version we want to use.
+  const contenttDb = await openDB('contact', 1);
+
+  // Create a new transaction and specify the database and data privileges.
+  const tx = contactDb.transaction('contact', 'readwrite');
+
+  // Open up the desired object store.
+  const store = tx.objectStore('contact');
+
+  // Use the .delete() method to get all data in the database.
+  const request = store.delete(id);
+
+  // Get confirmation of the request.
+  const result = await request;
+  console.log('result.value', result);
+  return result?.value;
 }
 
 
@@ -26,18 +44,18 @@ export const getDb = async () => {
   const contentDb = await openDB('content', 1);
 
   // Create a new transaction and specify the database and data privileges.
-  const tx = contentDb.transaction('content', 'readonly');
+  const tx = contentDb.transaction('content', 'readwrite');
 
   // Open up the desired object store.
   const store = tx.objectStore('content');
 
-  // Use the .getAll() method to get all data in the database.
-  const request = store.getAll();
+  // Use the .delete() method to get all data in the database.
+  const request = store.delete(id);
 
   // Get confirmation of the request.
-  const result = await request;
+  const result = await request; 
   console.log('result.value', result);
-  return result;
+  return result?.value;
 }
 
 initdb();
