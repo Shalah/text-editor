@@ -31,6 +31,8 @@ module.exports = () => {
       }),
 
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'Text Editor',
         short_name: 'Text Editor',
         description: 'Remember important tasks!',
