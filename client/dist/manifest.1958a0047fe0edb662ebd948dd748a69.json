@@ -1,0 +1,10 @@
+{
+  "name": "Text Editor",
+  "short_name": "Text Editor",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "Remember important tasks!",
+  "background_color": "#7eb4e2",
+  "theme_color": "#7eb4e2"
+}
