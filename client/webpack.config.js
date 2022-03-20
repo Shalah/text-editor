@@ -14,7 +14,7 @@ module.exports = () => {
       install: './src/js/install.js'
     },
     output: {
-      filename: '[name].bundle.js',
+      filename: '[name].bundle.js',    // This creates two different files (main and install)
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
@@ -42,9 +42,9 @@ module.exports = () => {
         publicPath: '/',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icons'),
+            src: path.resolve('src/images/logo.png'),  // This is for the logo in the page
+            sizes: [96, 128, 192, 256, 384, 512],     // These are different logo size that will be enable depending on the screen size
+            destination: path.join('assets', 'icons'), // This is where the images are
           },
         ],
       }),
